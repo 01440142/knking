@@ -8,7 +8,7 @@ DEST = $(SRC:src/%.c=%)
 all: $(DEST)
 
 %: src/%.c
-	$(CC) $(CFLAGS) -o dest/$@ $<
+	@$(CC) $(CFLAGS) -o dest/$@ $<
 
 clean:
 	@rm -rfv dest/*
