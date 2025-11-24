@@ -325,7 +325,7 @@ void pp9() {
         if ((y - 1) < 0 || grid[x][y - 1] != '.') {
             top = 0;
         }
-        if ((x + 1) > 9 || grid[x][x + 1] != '.') {
+        if ((x + 1) > 9 || grid[x + 1][y] != '.') {
             right = 0;
         }
         if ((y + 1) > 9 || grid[x][y + 1] != '.') {
@@ -352,8 +352,6 @@ void pp9() {
                 break;
             }
         }
-        printf("Letter %c @ x %d y %d\n", letter, x, y);
-        printf("top %d right %d bottom %d left %d\n", top, right, bottom, left);
     } while (possible > 0 && letter <= 'Z');
 
     for (i = 0; i < 10; i++) {
@@ -365,6 +363,44 @@ void pp9() {
 }
 
 void pp10() {
+    int arrival[] = {616, 724, 811, 900, 968, 1075, 1280, 1438},
+        departure[] = {480, 583, 679, 767, 840, 945, 1140, 1305},
+        hour, minute, time, i, j = -1,
+        departure_hour, departure_minute, departure_character,
+        arrival_hour, arrival_minute, arrival_character;
+
+    departure_character = arrival_character = 'a';
+
+    printf("Enter a 24-hour time: ");
+    scanf("%d:%d", &hour, &minute);
+    time = (hour * 60) + minute;
+
+    for (i = 0; i < (int) ((sizeof(departure) / sizeof(departure[0]) - 1)); i++) {
+        if (time < ((departure[i] + (departure[i + 1] - departure[i])) / 2)) {
+            j = i;
+            break;
+        }
+    }
+    if (j == -1) {
+        j = sizeof(departure) - 1;
+    }
+
+    if ((departure_hour = (departure[j] / 60)) > 12) {
+        departure_hour -= 12;
+        departure_character = 'p';
+    }
+    if ((arrival_hour = (arrival[j] / 60)) > 12) {
+        arrival_hour -= 12;
+        arrival_character = 'p';
+    }
+    departure_minute = departure[j] % 60;
+    arrival_minute = arrival[j] % 60;
+
+
+    printf("Closest Departure time is %d:%.2d %c.m., arriving at %d:%.2d %c.m.\n",
+        departure_hour, departure_minute, departure_character,
+        arrival_hour, arrival_minute, arrival_character
+    );
 }
 
 void pp11() {
@@ -398,8 +434,8 @@ int main(void) {
      * pp6();
      * pp7();
      * pp8();
+     * pp9();
      */
-    pp9();
     pp10();
     pp11();
     pp12();
