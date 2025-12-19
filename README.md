@@ -1,14 +1,13 @@
-# C Programming: A Modern Approach _by K. N. King_
+# C Programming: A Modern Approach
 
-## Chapter 11 _Pointers_
+## 11 Pointers
 
-01. (a) `*p` and (g) `*&i` are aliases `i`.
+01. (a) `*p` and (g) `*&i` are aliases for `i`.
 02. (e) `p = *&q;`, (f) `p = q;` and (i) `*p = *q;` are legal assignments.
 03.
 ```c
 void avg_sum(double a[], int n, double *avg, double *sum) {
   int i;
-
   *sum = 0.0;
   for (i = 0; i < n; i++) {
     *sum += a[i];
@@ -19,9 +18,7 @@ void avg_sum(double a[], int n, double *avg, double *sum) {
 04.
 ```c
 void swap(int *p, int *q) {
-  int temp;
-
-  temp = *p;
+  int temp = *p;
   *q = *p;
   *p = temp;
 }
@@ -38,14 +35,14 @@ void split_time(long total_sec, int *hr, int *min, int *sec) {
 ```c
 void find_two_largest(int a[], int n, int *largest, int *second_largest) {
   int i;
-
   *largest = *second_largest = a[0];
   for (i = 1; i < n; i++) {
     if (*largest < a[i]) {
       *second_largest = *largest;
       *largest = a[i];
-    } else if (*second_largest < a[i])
+    } else if (*second_largest < a[i]) {
       *second_largest = a[i];
+    }
   }
 }
 ```
@@ -72,14 +69,12 @@ void split_date(int day_of_year, int year, int *month, int *day) {
 08.
 ```c
 int *find_largest(int a[], int n) {
-  int *p = &a[0], i;
-  
+  int i, *p = &a[0];
   for (i = 1; i < n; i++) {
     if (*p < a[i]) {
       p = &a[i];
     }
   }
-
   return p;
 }
 ```
