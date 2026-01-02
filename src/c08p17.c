@@ -9,10 +9,6 @@ int main(void)
   printf("Enter size of magic square: ");
   scanf("%d", &n);
 
-  if (n > 99 || n % 2 == 0) {
-    return;
-  }
-
   c = n / 2;
   while (m <= (n * n)) {
     if (s[r][c] != 0) {

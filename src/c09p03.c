@@ -1,9 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
+
+void generate_random_walk(char walk[10][10]);
+void print_array(char walk[10][10]);
 
 int main(void)
 {
   char walk[10][10];
+
   generate_random_walk(walk);
   print_array(walk);
   return 0;

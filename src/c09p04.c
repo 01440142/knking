@@ -1,3 +1,6 @@
+#include <ctype.h>
+#include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 bool equal_array(int counts1[26], int counts2[26]);

@@ -24,11 +24,10 @@ int main(void)
     i++;
   }
 
-  if (i == (int)(sizeof(a) / sizeof(a[0]))) {
+  if (i == (int)(sizeof(a) / sizeof(a[0])))
     printf("The words are anagrams.\n");
-    return;
-  }
-  printf("The words are not anagrams.\n");
+  else 
+    printf("The words are not anagrams.\n");
 
   return 0;
 }

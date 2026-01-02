@@ -18,7 +18,7 @@ int main(void)
     }
   }
 
-  printf("Value of expression: %.1f\n", s1);
+  printf("Value of expression: %.1f\n", e1);
 
   return 0;
 }

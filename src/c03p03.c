@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void main(void)
+int main(void)
 {
   int x, g, p, n, c;
 
@@ -13,5 +13,5 @@ void main(void)
   printf("Item number: %d\n", n);
   printf("Check digit: %d\n", c);
 
-  return 0
+  return 0;
 }

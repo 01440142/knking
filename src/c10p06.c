@@ -1,6 +1,11 @@
+#include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 
+#define STACK_SIZE 100
+
+int contents[STACK_SIZE];
 int top = 0;
 
 char pop(void);

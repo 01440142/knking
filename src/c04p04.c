@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void main(void)
+int main(void)
 {
   int n, o1, o2, o3, o4, o5;
 

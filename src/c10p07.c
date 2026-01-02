@@ -1,10 +1,9 @@
+#include <ctype.h>
 #include <stdio.h>
 
-#define STACK_SIZE 100
 #define MAX_DIGITS 10
 
 char digits[3][4 * MAX_DIGITS];
-int contents[STACK_SIZE];
 int segments[10][7] = {
     {1, 1, 1, 1, 1, 1, 0}, /* 0 */
     {0, 1, 1, 0, 0, 0, 0}, /* 1 */

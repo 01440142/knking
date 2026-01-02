@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void main(void)
+int main(void)
 {
   int n;
 
@@ -8,5 +8,5 @@ void main(void)
   scanf("%d", &n);
   printf("The reversal is: %d%d%d\n", n % 10, n / 10 % 10, n / 100);
 
-  return 0
+  return 0;
 }

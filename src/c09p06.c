@@ -1,3 +1,6 @@
+#include <ctype.h>
+#include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 int polynomial(int x);
@@ -25,4 +28,3 @@ int polynomial(int x) {
 
   return result;
 }
-

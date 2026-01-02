@@ -6,7 +6,7 @@ int main(void)
   int delimiter = 0, words = 1;
 
   printf("Enter an sentence: ");
-  while ((ch = getchar()) =! '\n')
+  while ((ch = getchar()) != '\n')
     ch == ' ' ? delimiter++ : words++;
   printf("Average word length: %.1f\n", (float) words / delimiter);
 
