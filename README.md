@@ -1,6 +1,6 @@
 # C Programming: A Modern Approach
 
-## Chapter 2 - C Fundamentals
+## Chapter 02 - C Fundamentals
 
 01. Yes. It needs a `return` statement with an integer value.
 02. (a) One directive and four statements.
@@ -29,7 +29,7 @@ printf("%f, %f, %f", x, y, z);
 10. The text inside the printf statements, the return statement with zero and
     the include directive.
 
-## Chapter 3 - Formatted Input/Output
+## Chapter 03 - Formatted Input/Output
 
 1. (a) `  86,1040` (b) `3.02530e+01` (c) `83.1620` (d) `1e-06`
 2. (a) `printf("%-8.1e\n", x);`
@@ -48,7 +48,7 @@ scanf("%d /%d", &num1, &denom1);
 scanf("%d /%d", &num2, &denom2);
 ```
 
-## Chapter 4 - Expressions
+## Chapter 04 - Expressions
 
 01. (a) `1 2` (b) `0` (c) `1` (d) `0`
 02. Yes (C99). In mathematical fractions a minus sign before the fraction is
@@ -75,7 +75,7 @@ scanf("%d /%d", &num2, &denom2);
     (d) `(((a * (-b)) / c) - d)`
 15. (a) `3`, `2` (b) `0`, `2` (c) `1`, `2` (d) `1`, `3`
 
-## Chapter 5 - Selection Statements
+## Chapter 05 - Selection Statements
 
 01. (a) `1` (b) `1` (c) `1` (d) `0`
 02. (a) `1` (b) `1` (c) `1` (d) `1`
@@ -114,7 +114,7 @@ switch (area_code) {
 }
 ```
 
-## Chapter 6 - Loops
+## Chapter 06 - Loops
 
 01. `1 2 4 8 16 32 64 128`
 02. `9384 938 93 9`
@@ -162,7 +162,7 @@ if (n % 2 == 0)
   printf("n is even\n");
 ```
 
-## Chapter 7 - Basic Types
+## Chapter 07 - Basic Types
 
 01. (a) `63` (b) `119` (c) `2748`
 02. (a), (b) and (e) are legal floating-point.
@@ -191,7 +191,7 @@ typedef short Int16;
 typedef int Int32;
 ```
 
-## Chapter 8 - Arrays
+## Chapter 08 - Arrays
 
 01. The expression is no longer valid after the type is changed. Furthermore
     the correctness of `t` isn't guaranteed and needs to be checked
@@ -264,7 +264,7 @@ for (i = 0; i < 8; i++)
     checker_board[i][j] = (i + j) % 2 ? 'R' : 'B';
 ```
 
-## Chapter 9 - Functions
+## Chapter 09 - Functions
 
 01.
 ```c
@@ -336,7 +336,7 @@ int digit(int n, int k)
 ```
 07. All are legal statements.
 08. (a) and (b) are valid prototypes.
-09. i = 1, j = 2
+09. `i = 1, j = 2`
 10. (a)
 ```c
 int largest(int a[], int n)
@@ -475,6 +475,7 @@ int fact(int n)
     r *= n;
   return r;
 }
+```
 18.
 ```c
 int gcd(int m, int n)
@@ -584,18 +585,15 @@ int *find_largest(int a[], int n) {
 03. `{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}`
 04.
 ```c
-void make_empty(void)
-{
+void make_empty(void) {
   top_ptr = &contents[0];
 }
 
-bool is_empty(void)
-{
+bool is_empty(void) {
   return top_ptr == &contents[0};
 }
 
-bool is_full(void)
-{
+bool is_full(void) {
   return top_ptr == &contents[STACK_SIZE];
 }
 ```
@@ -605,9 +603,7 @@ bool is_full(void)
 ```c
 int sum_array(const int a[], int n)
 {
-  int *p, sum;
-
-  sum = 0
+  int *p, sum = 0;
   for (p = a; p < a + n; p++)
     sum += *p;
   return sum;
@@ -618,7 +614,6 @@ int sum_array(const int a[], int n)
 bool search(const int a[], int n, int key)
 {
   int *p;
-
   for (p = a; p < a + n; p++)
     if (*p == key)
       return true;
@@ -630,7 +625,6 @@ bool search(const int a[], int n, int key)
 void store_zeros(int a[], int n)
 {
   int *p;
-
   for (p = a; p < a + n; p++)
     *p = 0;
 }
@@ -641,7 +635,6 @@ double inner_product(const double *a, const double *b, int n)
 {
   int i = 0;
   double sum = 0.0;
-
   while (i++ < n)
     sum += (*a++) * (*b++);
   return sum;
@@ -657,9 +650,7 @@ int *find_middle(int a[], int n) {
 ```c
 int find_largest(int a[], int n)
 {
-  int *p, max;
-
-  max = *a;
+  int *p, max = *a;
   for (p = a + 1; p < a + n; p++)
     if (*p > max)
       max = *p;
@@ -671,7 +662,6 @@ int find_largest(int a[], int n)
 void find_two_largest(const int *a, int n, int *largest, int *second_largest)
 {
   int *p;
-
   *largest = *second_largest = *a;
   for (p = a; p < a + n; p++) {
     if (*p > *largest) {
@@ -696,11 +686,10 @@ for (p = ident[0], count = 0; p < ident[0] + (N*N); p++, count++)
     *p = 0.0;
 ```
 14. `search(temperatures, 168, 32);`
-15. ```
+15.
 ```c
 int *p;
-for (p = temperatures[i]; p < temperatures[i] + 24; p++)
-  ;
+for (p = temperatures[i]; p < temperatures[i] + 24; p++);
 ```
 16.
 ```c
@@ -721,11 +710,12 @@ int sum_two_dimensional_array(const int a[][LEN], int n)
 ```
 18.
 ```c
-int evaluate_position(char board[8][8]) {
+int evaluate_position(char board[8][8])
+{
   char *p;
   int total = 0;
 
-  for (p = board[0]; p < board[0] + 64; p++) {
+  for (p = board[0]; p < board[0] + 64; p++)
     switch (*p) {
       case 'Q': total += 9; break;
       case 'R': total += 5; break;
@@ -738,8 +728,161 @@ int evaluate_position(char board[8][8]) {
       case 'n': total -= 3; break;
       case 'p': total--;    break;
     }
-  }
 
   return total;
+}
+```
+
+## Chapter 13 - Strings
+
+1.
+(b) `printf("%c", "\n");` receives a `string` instead of a `char`.
+(c) `printf("%s", '\n');` receives a `char` insteaf of `string`.
+(e) `printf('\n');` receives a `char` instead of a `string`.
+(h) `putchar('\n');` receives a `string` instead of a `char`.
+(i) `puts('\n');` receives a `char` instead of a `string`.
+(j) `puts("\n");` writes *two* newline characters.
+
+2.
+(a) `putchar(p);` is illegal because the argument is a `char *`.
+(b) `putchar(*p);` prints `a`.
+(c) `puts(p);` prints `abc`.
+(d) `puts(*p);` is illegal because the argument is a `char`.
+
+3. `i` is `12`, `s` is `abc34` and `j` is `56`.
+
+4.
+
+```c
+int read_line(char str[]. int n)
+{
+  int ch, i = 0;
+
+  while (isspace(ch = getchar()))
+    ;
+  do {
+    if (isspace(ch))
+      break;
+    if (i < n)
+      str[i++] = ch;
+  } while ((ch = getchar()) != '\n');
+  str[i] = '\0';
+  return i;
+}
+```
+
+5.
+```c
+void capitalize(char *str)
+{
+  for (; *str != '\0'; str++)
+    *str = toupper(*str);
+}
+```
+
+6.
+```c
+void censor(char *str)
+{
+  for (; *str != '\0'; str++)
+    if (*str == 'f' && *(str + 1) == 'o' && *(str + 2) == 'o') {
+      *str = *(str + 1) = *(str + 2) = 'x';
+      str += 2;
+    }
+}
+```
+
+7. (d) `strcat(str, "");` appends `\0` in `str` while the other insert `\0` at position `[0]`.
+
+8. `tired-or-wired`.
+
+9. `computers\0`
+
+10. `char *q;` isn't initialized. `*q` points nowhere specific (unknown area of memory).
+
+11.
+```c
+int strcmp(char *s, char *t)
+{
+  for (; *s == *t; s++, t++)
+    if (*s == '\0')
+      return 0;
+  return *s - *t;
+}
+```
+
+12.
+```c
+void get_extension(const char *file_name, char *extension)
+{
+  int i;
+
+  for (i = strlen(file_name) - 2; i >= 0; i--)
+    if (file_name[i] == '.') {
+      strcpy(extension, file_name + i + 1);
+      return;
+    }
+  strcpy(extension, "");
+}
+```
+
+13.
+```c
+void build_index_url(const char *domain, char *index_url)
+{
+  strcpy(index_url, "http://www.");
+  strcat(strcat(index_url, domain), "/index.html");
+}
+```
+
+14. `Grinch\n`
+
+15.
+(a) `3`.
+(b) `0`.
+(c) `f` returns the position of the first character in `s` which doesn't occur in `t`.
+
+16.
+```c
+int count_spaces(const char *s)
+{
+  int count = 0;
+
+  while (*s)
+    if (*s++ == ' ')
+      count++;
+  return count;
+}
+```
+17.
+```c
+bool test_extension(const char *file_name, const char *extension)
+{
+   int i, j;
+
+   for (i = strlen(file_name)-1; i >= 1; i--)
+     if (file_name[i] == '.')
+       break;
+   if (file_name[i++] == '\0')
+     return false;
+   for (j = 0; file_name[i] && extension[j]; i++, j++)
+     if (toupper(file_name[i]) != toupper(extension[j]))
+       return false;
+
+   return true;
+}
+```
+
+18.
+```c
+void remove_filename(char *url)
+{
+  int i;
+
+  for (i = strlen(url)-1; i >= 0; i--)
+    if (url[i] == '/') {
+      url[i] = '\0';
+      return;
+    }
 }
 ```
