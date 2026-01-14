@@ -1,0 +1,43 @@
+Chapter 15: Writing Large Programs
+
+01. (a) Another advantage is modularity (header files only expose intended
+    functions for usage).  
+    (b) One disadvantage is increased build complexity (e.g protecting header
+    files against multiple inclusions). 
+
+02. Function definitions (b) in header files would prevent linking if they are
+    included in multiple different source files.
+
+03. Not necessarily. The compiler would search the system header files
+    directory after it didn't found it locally. The potential for
+    unintentional overwriting exists.
+
+04. (a) Output if DEBUG is defined:
+        Value of " i ": 1
+        Value of " j ": 2
+        Value of " k ": 3
+        Value of " i + j ": 3
+        Value of " 2 * i + j - k ": 1
+    (b) Output if DEBUG is not defined:
+    (c) DEBUG isn't defined which causes PRINT_DEBUG to be an parameterized
+        macro with an empty replacement-list. This results in empty statements
+        where before were printf statements.
+    (d) Yes. Otherwise when the #include directive inserts the contents of
+        debug.h into debug.c the DEBUG macro stays undefined.
+
+05. demo: main.o f1.o f2.o
+    	gcc -o demo main.o f1.o f2.o
+
+    main.o: main.c f1.h
+    	gcc -c main.c
+
+    f1.o: f1.c f1.h f2.h 
+    	gcc -c f1.c
+
+    f2.o: f2.c f1.h f2.h 
+    	gcc -c f2.c
+
+06. (a) main.c, f1.c and f2.c.
+    (b) f1.c.
+    (c) main.c, f1.c and f2.c.
+    (d) f1.c and f2.c.
