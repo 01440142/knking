@@ -1,0 +1,88 @@
+Chapter 14: The Preprocessor
+
+01. (a) #define CUBE(x) ((x) * (x) * (x))
+    (b) #define MOD4(n) ((n) % 4)
+    (c) #define PRODUCT_BELOW_100(x, y) (((x) * (y)) < 100)
+
+    The macros fail if the arguments don't evaluate to numbers.
+
+02. #define NELEMS(a) ((int) (sizeof(a) / (sizeof(a[0])))
+
+03. (a) 4
+    (b) 4
+    (c) #define DOUBLE(x) (2 * (x))
+
+04. (a) 1/AVG(1, 1) results in 0 instead of 1
+        #define AVG(x, y) (((x)+(y)) / 2)
+    (b) 2/AREA(2, 2) results in 2 instead of 0.5
+        #define AREA(x, y) ((x) * (y))
+
+05. (a) D
+    (b) 2
+
+06. (a) #define DISP(f, x) (printf("%s(%g) = %g\n", (#f), (x), (f(x)))) 
+    (b) #define DISP2(f, x, y) (printf("%s(%g, %g) = %g\n", (#f), (x), (y), (f((x),(y)))))
+
+07. (a) long long_max(long x, long y)
+        {
+          return x > y ? x : y;
+        }
+    (b) Function definitions don't allow spaces within the function name.
+    (c) typedef unsigned long uint64;
+        GENERIC_MAX(uint64)
+
+08. #define LINE_FILE() (printf("Line %d of file %s\n", __LINE__, __FILE__))
+
+09. #define STR(s) #s 
+    #define MK_STR(s) STR(s)
+    #define LINE_FILE() ("Line " MK_STR(__LINE__) " of file " __FILE__)
+
+10. An example would be the CONCAT(x,y) macro in the Q&A section. Macros with
+    nested macro calls are better expressed as recursive functions.
+
+11. #define ERROR(s, ...) (fprintf(stderr, (s), __VA_ARGS__)) 
+
+12. (c) and (e) will fail.
+
+13. (a) void f(void);
+
+        int main(void)
+        {
+          f();
+          return 0;
+        }
+
+        void f(void)
+        {
+          printf("N is undefined\n");
+        }
+    (b) N is undefined
+
+14. int main(void)
+    {
+      int a[= 10], i, j, k, m; /* syntax error */
+
+      i = j;
+
+      i = 10 * j+1;
+      i = (x,y) x-y(j, k); /* syntax error */
+      i = ((((j)*(j)))*(((j)*(j))));
+      i = (((j)*(j))*(j));
+      i = jk; /* undefined */
+      puts("i" "j");
+
+      i = SQR(j);
+      i = (j);
+
+      return 0;
+    }
+
+15. #if defined(ENGLISH)
+    printf("Insert Disk 1\n");
+    #elif defined(FRENCH)
+    printf("Inserez Le Disque 1\n");
+    #elif defined(SPANISH)
+    printf("Inserte El Disco 1\n");
+    #endif
+
+16. #pragma ident "foo"
