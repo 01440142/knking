@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-g -Wall -Wextra -Wpedantic -std=c89
 
-all: justify qsort
+all: justify qsort remind
 
 justify: justify.o line.o word.o
 	@$(CC) -o justify justify.o line.o word.o
@@ -24,5 +24,14 @@ qsort.o: qsort.c quicksort.h
 quicksort.o: quicksort.c quicksort.h
 	@$(CC) -c quicksort.c
 
+remind: remind.o readline.o
+	@$(CC) -o remind remind.o readline.o
+
+remind.o: remind.c readline.h
+	@$(CC) -c remind.c
+
+readline.o: readline.c readline.h
+	@$(CC) -c readline.c
+
 clean:
-	@rm -f justify qsort *.o
+	@rm -f justify qsort remind *.o
